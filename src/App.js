@@ -1,11 +1,12 @@
-import React from "react";
+import React from 'react';
+import Auth from './pages/auth/auth';
 
 const App = () => {
   return (
     <div>
-      WELCOME TO GOALVAULT!
+      <Auth />
     </div>
-  )
+  );
 };
 
 export default App;

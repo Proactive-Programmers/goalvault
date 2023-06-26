@@ -5,9 +5,8 @@
   align-items: center;
   justify-content: center;
 }
-
-.signup,
-.signin {
+.signin,
+.signup {
   width: 30%;
   height: 40vh;
   display: flex;

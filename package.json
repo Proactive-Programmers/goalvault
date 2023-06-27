@@ -37,6 +37,7 @@
     "express-session": "^1.17.3",
     "nodemon": "^2.0.22",
     "passport": "^0.6.0",
+    "pg": "^8.11.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-redux": "^8.1.1",

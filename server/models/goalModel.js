@@ -1,11 +1,9 @@
+// //require the dotenv package
+// require('dotenv').config();
 const { Pool } = require('pg');
-
-// database connection URI
-const PG_URI = 'postgres://nvjotmfx:I2Z_ieuv5rsVfHs88Hdqx22QoAsyDjQh@rajje.db.elephantsql.com/nvjotmfx';
-
 // create a new pool here using the connection string above
 const pool = new Pool({
-    connectionString: PG_URI,
+    connectionString: 'postgres://nvjotmfx:I2Z_ieuv5rsVfHs88Hdqx22QoAsyDjQh@rajje.db.elephantsql.com/nvjotmfx'
 });
 
 // We export an object that contains a property called query,
@@ -45,37 +43,3 @@ const createSchemaSql = `
   );
 `;
 
-// // Function to execute the schema setup
-// async function setupSchema() {
-//   let client;
-//   try {
-//     // Acquire a client from the connection pool
-//     client = await pool.connect();
-
-//     // Begin a transaction
-//     await client.query('BEGIN');
-
-//     // Execute the schema creation statements
-//     await client.query(createSchemaSql);
-
-//     // Commit the transaction
-//     await client.query('COMMIT');
-
-//     console.log('Schema setup successful!');
-//   } catch (error) {
-//     // Rollback the transaction on error
-//     await client.query('ROLLBACK');
-//     console.error('Schema setup error:', error);
-//   } finally {
-//     // Release the client back to the pool
-//     if (client) {
-//       client.release();
-//     }
-
-//     // End the pool's database connection
-//     await pool.end();
-//   }
-// }
-
-// // Call the function to set up the schema, commented out so it doesn't run every time we start the server
-// //setupSchema();

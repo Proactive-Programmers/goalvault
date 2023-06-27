@@ -48,12 +48,14 @@ userController.verifyUser = (req, res, next) => {
 userController.verifyAccount = (req, res, next) => {
   // console.log('req.body', JSON.stringify(req.body));
   const { username } = req.body;
+  console.log('username: ', username)
   // console.log('signup vars',username, password, first_name)
   res.locals.user = {};
 
   const queryString = `SELECT * FROM users WHERE username = $1`;
   db.query(queryString, [username])
     .then((data) => {
+        console.log('data is: ', data);
       if (data.rows[0] !== undefined) {
         res.locals.user.status = 'UsernameExists';
         res.sendStatus(409);

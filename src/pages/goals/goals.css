@@ -1,0 +1,97 @@
+.goalsPage {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  color: #008080;
+  margin-top: 50px;
+}
+
+.goalInputs {
+  margin-top: 50px;
+  height: 20vh;
+  border: 0.2px solid teal;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 60%;
+}
+.goalInputs input {
+  border: 0.2px solid teal;
+  border-radius: 5px;
+  width: 20%;
+  height: 25px;
+}
+.goalInputs input::placeholder {
+  color: teal;
+}
+.goalInputs input:focus {
+  /* color: teal; */
+  outline: none;
+}
+.goalInputs button {
+  margin-top: 10px;
+  width: 15%;
+  height: 25px;
+  border-radius: 5px;
+  background-color: teal;
+  color: white;
+  border: none;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+.goalList {
+  display: flex;
+  height: 70%;
+  align-items: center;
+  justify-content: start;
+  flex-direction: column;
+  width: 60%;
+  border: 0.2px solid teal;
+  border-radius: 5px;
+  overflow-y: auto;
+  margin-bottom: 50px;
+}
+.goalItemHolder {
+  width: 100%;
+  height: 100%;
+  margin-top: 60px;
+  /* background-color: aqua; */
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  flex-direction: column;
+  gap: 10px;
+}
+.goalItem {
+  position: relative;
+  width: 50%;
+  border: 0.2px solid teal;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.goalItemActions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  position: absolute;
+  gap: 5px;
+  right: 0;
+}
+.goalItemActions img {
+  cursor: pointer;
+}
+.hoveredText {
+  position: absolute;
+  right: -20px;
+  top: -50px;
+}

@@ -1,10 +1,12 @@
 const { Router } = require('express');
-const { verifyUser } = require('../controllers/userController');
+const  userController  = require('../controllers/userController');
+const  sessionController  = require('../controllers/sessionController');
+const  cookieController  = require('../controllers/cookieController');
 
 const loginRouter = Router();
 // loginRouter to handle login request
-loginRouter.post('/', verifyUser, (req, res) => {
-    return res.status(201).json('You are logged in');
+loginRouter.post('/loginRequest', userController.verifyUser,  sessionController.startSession, cookieController.setSSIDCookie, (req, res) => {
+    return res.status(201).json('Sucessfully logged in');
 });
 
 

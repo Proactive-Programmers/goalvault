@@ -22,7 +22,6 @@ const Signup = () => {
           dispatch(setUser());
         }}
       >
-        {' '}
         Signup
       </button>
     </div>

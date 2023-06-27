@@ -3,6 +3,8 @@ import { createSlice } from '@reduxjs/toolkit';
 const initialState = {
   userName: false,
   signup: false,
+  goals: [],
+  currentGoal: null,
 };
 
 export const userSlice = createSlice({
@@ -16,9 +18,12 @@ export const userSlice = createSlice({
       console.log('handle sowsignup');
       state.signup = true;
     },
+    setCurrentGoal: (state, action) => {
+      state.currentGoal = action.payload;
+    },
   },
 });
 
-export const { setUser, showSignup } = userSlice.actions;
+export const { setUser, showSignup, setCurrentGoal } = userSlice.actions;
 
 export default userSlice.reducer;

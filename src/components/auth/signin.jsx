@@ -20,8 +20,8 @@ const Signin = () => {
       <p>Do not have account yet?</p>
       <button
         onClick={() => {
-          console.log('clicked');
-          console.log('user', user);
+          // console.log('clicked');
+          // console.log('user', user);
           dispatch(showSignup());
         }}
       >

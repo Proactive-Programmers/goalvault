@@ -4,7 +4,7 @@ import { setUser } from '../../redux/slices/userSlice';
 
 const Signup = () => {
   const dispatch = useDispatch();
-  const user = useSelector((state) => state.user);
+  const user = useSelector((state) => state.userName);
 
   const [password, setPassword] = useState('');
   const [username, setUserName] = useState('');
@@ -31,7 +31,7 @@ const Signup = () => {
       <h2>Sign Up</h2>
       <label>
         Username{' '}
-        <input type='text' onChange={(e) => setuserName(e.target.value)} />
+        <input type='text' onChange={(e) => setUserName(e.target.value)} />
       </label>
       <label>
         Password

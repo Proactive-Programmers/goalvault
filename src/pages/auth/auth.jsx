@@ -4,7 +4,7 @@ import './auth.css';
 import Signin from '../../components/auth/signin';
 import { useSelector } from 'react-redux';
 const Auth = () => {
-  const showSignup = useSelector((state) => state.user.signup);
+  const showSignup = useSelector((state) => state.signup);
   return (
     <div className='auth'>{showSignup ? <Signup /> : <Signin />}</div>
     // <Signin />

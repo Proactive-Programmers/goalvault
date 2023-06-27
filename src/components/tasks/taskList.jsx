@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 
 const TaskList = () => {
-  let goal = useSelector((state) => state.user.currentGoal);
+  let goal = useSelector((state) => state.currentGoal);
   console.log(goal);
   return (
     <div className='taskList'>

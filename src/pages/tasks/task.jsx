@@ -4,7 +4,7 @@ import TaskList from '../../components/tasks/taskList';
 import './task.css';
 import { useSelector } from 'react-redux';
 const Task = () => {
-  const goalName = useSelector((state) => state.user.currentGoal.name);
+  const goalName = useSelector((state) => state.currentGoal.name);
   return (
     <div className='taskPage'>
       <TaskInputs />

@@ -21,9 +21,16 @@ export const userSlice = createSlice({
     setCurrentGoal: (state, action) => {
       state.currentGoal = action.payload;
     },
+    logoutUser: (state) => {
+      state.userName = false;
+      state.signup = false;
+      state.goals = [];
+      state.currentGoal = null;
+    },
   },
 });
 
-export const { setUser, showSignup, setCurrentGoal } = userSlice.actions;
+export const { setUser, showSignup, setCurrentGoal, logoutUser } =
+  userSlice.actions;
 
 export default userSlice.reducer;

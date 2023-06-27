@@ -3,12 +3,13 @@ import { useDispatch, useSelector } from 'react-redux';
 import { showSignup } from '../../redux/slices/userSlice';
 
 const Signin = () => {
-  const user = useSelector((state) => state.user);
+  const user = useSelector((state) => state.userName);
+  console.log('username', user);
   const dispatch = useDispatch();
 
   const [password, setPassword] = useState('');
-  const [userName, setUserName] = useState('');
-  console.log(password, userName);
+  const [username, setUserName] = useState('');
+  console.log(password, username);
   const handleSignin = async () => {
     try {
       const response = await fetch('/login', {
@@ -16,7 +17,7 @@ const Signin = () => {
         headers: {
           'Content-type': 'application/json',
         },
-        body: JSON.stringify({ userName, password }),
+        body: JSON.stringify({ username, password }),
       });
       const data = await response.json();
       ////set user //or set goalsand tasks
@@ -39,6 +40,7 @@ const Signin = () => {
       <p>Do not have account yet?</p>
       <button
         onClick={() => {
+          console.log(user);
           dispatch(showSignup());
         }}
       >

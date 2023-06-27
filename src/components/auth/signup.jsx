@@ -22,7 +22,7 @@ const Signup = () => {
           dispatch(setUser());
         }}
       >
-        Signup
+        Sign up
       </button>
     </div>
   );

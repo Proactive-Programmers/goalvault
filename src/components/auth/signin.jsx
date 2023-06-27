@@ -16,12 +16,10 @@ const Signin = () => {
         Password
         <input type='password' />
       </label>
-      <button> Signin</button>
+      <button> Sign in</button>
       <p>Do not have account yet?</p>
       <button
         onClick={() => {
-          // console.log('clicked');
-          // console.log('user', user);
           dispatch(showSignup());
         }}
       >

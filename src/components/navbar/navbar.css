@@ -1,0 +1,14 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background-color: teal;
+  color: white;
+}
+.logoutButton {
+  cursor: pointer;
+}

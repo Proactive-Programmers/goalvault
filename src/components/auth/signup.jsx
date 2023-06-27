@@ -10,17 +10,19 @@ const Signup = () => {
   const [username, setUserName] = useState('');
 
   const handleSignup = async () => {
-    dispatch(setUser());
     try {
-      const response = await fetch('/login', {
+      const response = await fetch('/login/signupRequest', {
         method: 'POST',
         headers: {
           'Content-type': 'application/json',
         },
         body: JSON.stringify({ username, password }),
       });
+      console.log(response, 'response');
       const data = await response.json();
-      ////set user //or set goalsand tasks
+      console.log(data, 'data');
+
+      dispatch(setUser(data));
     } catch (error) {
       console.log(error.messag);
     }

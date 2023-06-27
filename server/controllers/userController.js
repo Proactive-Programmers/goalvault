@@ -48,14 +48,14 @@ userController.verifyUser = (req, res, next) => {
 userController.verifyAccount = (req, res, next) => {
   // console.log('req.body', JSON.stringify(req.body));
   const { username } = req.body;
-  console.log('username: ', username)
+  console.log('username: ', username);
   // console.log('signup vars',username, password, first_name)
   res.locals.user = {};
 
   const queryString = `SELECT * FROM users WHERE username = $1`;
   db.query(queryString, [username])
     .then((data) => {
-        console.log('data is: ', data);
+      console.log('data is: ', data);
       if (data.rows[0] !== undefined) {
         res.locals.user.status = 'UsernameExists';
         res.sendStatus(409);
@@ -75,25 +75,26 @@ userController.verifyAccount = (req, res, next) => {
 
 userController.createUser = async (req, res, next) => {
   const { username, password } = req.body;
-//   console.log('res.locals is: ', res.locals);
-const hashedPw = await bcrypt.hash(password, saltRound);
+  //   console.log('res.locals is: ', res.locals);
+  const hashedPw = await bcrypt.hash(password, saltRound);
   // console.log('hashedPw', hashedPw, typeof hashedPw)
   const queryString = `INSERT INTO users (username, password) 
                         VALUES ( $1, $2)
                         RETURNING *`;
   db.query(queryString, [username, hashedPw])
     .then((data) => {
-        console.log('data at row zero: ', data.rows[0]);
+      console.log('data at row zero: ', data.rows[0]);
       res.locals.username = data.rows[0].username;
+      console.log(res.locals.username, 'username from createuser controller');
       const { newUser } = res.locals;
       return next();
     })
     .catch((err) => {
-        console.log('the error is: ', err)
+      console.log('the error is: ', err);
       return next({
         log: `createUser: ${err}`,
         status: 500,
-        message: {err: 'error occurred in createUser-create'},
+        message: { err: 'error occurred in createUser-create' },
       });
     });
 };

@@ -1,27 +1,14 @@
 const { Pool } = require('pg');
 
-// database connection URI
-const PG_URI = 'postgres://nvjotmfx:I2Z_ieuv5rsVfHs88Hdqx22QoAsyDjQh@rajje.db.elephantsql.com/nvjotmfx';
-
-// create a new pool here using the connection string above
+// Create a connection pool
 const pool = new Pool({
-    connectionString: PG_URI,
+  user: 'your_username',
+  host: 'your_host',
+  database: 'your_database',
+  password: 'your_password',
+  port: 5432, // Default PostgreSQL port
 });
 
-// We export an object that contains a property called query,
-// which is a function that returns the invocation of pool.query() after logging the query
-// This will be required in the controllers
-module.exports = {
-    query: (text, params, callback) => {
-        // ensure that we are connected to the database
-        console.log('db is connected');
-        // console.log will tell us what the query was
-        console.log('executed query', text);
-        return pool.query(text, params, callback);
-    },
-};
-
-// Here we are creating a new pool instance, which will allow us to make queries to our database.
 // Define the SQL statements for creating the schema
 const createSchemaSql = `
   CREATE TABLE users (

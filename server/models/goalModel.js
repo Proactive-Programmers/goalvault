@@ -77,5 +77,5 @@ async function setupSchema() {
   }
 }
 
-// Call the function to set up the schema
-setupSchema();
+// Call the function to set up the schema, commented out so it doesn't run every time we start the server
+//setupSchema();

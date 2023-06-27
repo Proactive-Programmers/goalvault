@@ -11,8 +11,8 @@ export const userSlice = createSlice({
   name: 'user',
   initialState,
   reducers: {
-    setUser: (state) => {
-      state.userName = true;
+    setUser: (state, action) => {
+      state.userName = action.payload;
     },
     showSignup: (state) => {
       console.log('handle sowsignup');

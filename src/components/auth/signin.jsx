@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { showSignup } from '../../redux/slices/userSlice';
+import { setUser, showSignup } from '../../redux/slices/userSlice';
 
 const Signin = () => {
   const user = useSelector((state) => state.userName);
@@ -12,15 +12,16 @@ const Signin = () => {
   console.log(password, username);
   const handleSignin = async () => {
     try {
-      const response = await fetch('/login', {
-        method: 'GET',
+      const response = await fetch('/login/loginRequest', {
+        method: 'POST',
         headers: {
           'Content-type': 'application/json',
         },
         body: JSON.stringify({ username, password }),
       });
       const data = await response.json();
-      ////set user //or set goalsand tasks
+      console.log(data, 'data');
+      dispatch(setUser(data));
     } catch (error) {
       console.log(error.messag);
     }

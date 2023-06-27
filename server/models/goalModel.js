@@ -21,6 +21,15 @@ module.exports = {
     },
 };
 
+// SQL statements for checking if the schema exists
+const checkSchemaSql = `
+  SELECT EXISTS (
+    SELECT 1
+    FROM   information_schema.tables
+    WHERE  table_name = 'users'
+  );
+`;
+
 // Here we are creating a new pool instance, which will allow us to make queries to our database.
 // Define the SQL statements for creating the schema
 const createSchemaSql = `
@@ -52,6 +61,12 @@ async function setupSchema() {
     // Acquire a client from the connection pool
     client = await pool.connect();
 
+    // check if schema exists
+    const checkSchema = await client.query(checkSchemaSql);
+    const schemaExists = checkSchema.rows[0].exists;
+
+    // If the schema exists, don't do anything
+    if (!schemaExists) {
     // Begin a transaction
     await client.query('BEGIN');
 
@@ -62,6 +77,9 @@ async function setupSchema() {
     await client.query('COMMIT');
 
     console.log('Schema setup successful!');
+    } else {
+    console.log('Schema already exists :).');
+    }
   } catch (error) {
     // Rollback the transaction on error
     await client.query('ROLLBACK');
@@ -77,5 +95,5 @@ async function setupSchema() {
   }
 }
 
-// Call the function to set up the schema, commented out so it doesn't run every time we start the server
-//setupSchema();
+// Call the function to set up the schema - includes conditional that chesks if the schema exists, and if it does, it does not run the createSchemaSql
+setupSchema();

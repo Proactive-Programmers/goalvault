@@ -9,7 +9,7 @@ const TaskList = () => {
       <div className='taskListHolder'>
         {goal.tasks.map((el) => {
           return (
-            <div className='taskListItem'>
+            <div className='taskListItem' key={el}>
               <p>{el.taskName}</p>
               <p>{el.due}</p>
               <p>{el.priority}</p>

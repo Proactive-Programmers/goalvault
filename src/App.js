@@ -10,20 +10,13 @@ const App = () => {
   const user = useSelector((state) => state.user);
   console.log(user);
   return (
-    <div>
-      <Auth />
-      <Goals />
-      {user.currentGoal ? <Task /> : null}
+    <div className='App'>
+      <Routes>
+        <Route path='/' element={user.userName ? <Goals /> : <Auth />} />
+        <Route path='/goals/:goal' element={<Task />} />
+      </Routes>
     </div>
-    // <div>{user.currentGoal ? <Goals /> : <Task />}</div>;
   );
 };
 
 export default App;
-{
-  /* <Routes>
-        <Route path='/' element={user ? <Goals /> : <Auth />} />
-        <Route path='/goals/:goal' element={<Tasks />} />
-
-      </Routes> */
-}

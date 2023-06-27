@@ -3,8 +3,7 @@ const path = require('path');
 // const cors = require('cors');
 const cookieParser = require('cookie-parser');
 const loginRouter = require('./routes/loginRouter');
-// const logoutRouter = require('./routes/logoutRouter');
-
+const logoutRouter = require('./routes/logoutRouter');
 const port = 8080;
 
 const app = express();
@@ -19,7 +18,7 @@ app.use(cookieParser());
 // app.use(express.static(path.join(__dirname, './src')));
 //define route handlers
 app.use('/login', loginRouter);
-// app.use('/logout', logoutRouter);
+app.use('/logout', logoutRouter);
 //catch-all route handler for any requests to an unkkown route
 app.use((req, res) => res.status(404).send('Page does not exist'));
 //global error handler

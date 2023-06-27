@@ -15,6 +15,16 @@ module.exports = {
     open: true,
     hot: true,
     liveReload: true,
+    proxy: {
+      '/login/**': {
+        target: 'http://localhost:8080/',
+        secure: false,
+      },
+      '/logout/**': {
+        target: 'http://localhost:8080/',
+        secure: false,
+      },
+    },
   },
   resolve: {
     extensions: ['.js', '.jsx', '.json'],

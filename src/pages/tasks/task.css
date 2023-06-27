@@ -23,11 +23,44 @@
   height: 100%;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: start;
   flex-direction: column;
   border: 0.2px solid teal;
   border-radius: 5px;
   margin-bottom: 100px;
+}
+.taskListTable {
+  width: 100%;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: teal;
+  color: white;
+  margin-bottom: 20px;
+}
+.taskListTable p {
+  flex: 1;
+  text-align: center;
+}
+.taskListItem {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 0.5px dotted teal;
+}
+.taskListItem p {
+  text-align: center;
+  flex: 1;
+}
+.taskListHolder {
+  width: 80%;
+  /* display: flex; */
+  /* align-items: start; */
+  /* justify-content: flex-start; */
+  flex-direction: column;
+  margin-top: 50px;
 }
 .taskList h2 {
   font-weight: normal;
@@ -47,7 +80,7 @@
 .taskInputHolders {
   width: 100%;
   height: 120px;
-
+  background-color: aqua;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -63,4 +96,9 @@
 }
 .taskInputHolders input:focus {
   outline: none;
+}
+select {
+  width: 60px;
+
+  height: 40px;
 }

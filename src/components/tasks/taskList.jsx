@@ -7,6 +7,11 @@ const TaskList = () => {
   return (
     <div className='taskList'>
       <div className='taskListHolder'>
+        <div className='taskListTable'>
+          <p>Task Name</p>
+          <p>Due Date</p>
+          <p>Priority</p>
+        </div>
         {goal.tasks.map((el) => {
           return (
             <div className='taskListItem' key={el}>

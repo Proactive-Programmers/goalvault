@@ -21,9 +21,20 @@ const GoalList = () => {
       tasks: [{ taskName: 'apply jobs', due: 'this year', priority: 'high' }],
     },
   ];
-  const handleDeleteGoal = (id) => {
+  const handleDeleteGoal = async (id) => {
     console.log('id', id);
     console.log('deleted');
+
+    const response = await fetch('/deleteGoal', {
+      method: 'DELETE',
+      headers: {
+        'Content-type': 'application/json',
+      },
+      //maybe send username aswell
+      body: JSON.stringify(id),
+    });
+    const data = await response.json();
+    //update state maybe
   };
 
   const handleGoalClick = (goalName) => {

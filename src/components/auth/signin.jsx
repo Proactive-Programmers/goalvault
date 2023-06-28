@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setUser, showSignup } from '../../redux/slices/userSlice';
+import keeperLogo from '../../../public/img/GOAL-KEEPER-LOGO-500-TEXT.png';
 
 const Signin = () => {
   const user = useSelector((state) => state.userName);
@@ -52,6 +53,7 @@ const Signin = () => {
       >
         Create Account
       </button>
+      <img className='logo' src={keeperLogo} alt='goal-keeper-logo' />
     </div>
   );
 };

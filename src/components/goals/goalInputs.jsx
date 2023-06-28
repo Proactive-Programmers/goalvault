@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { addGoal } from '../../redux/slices/userSlice.js';
+
+
 const GoalInputs = () => {
   const user = useSelector((state) => state);
   const [goal, setGoal] = useState(null);

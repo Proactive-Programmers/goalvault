@@ -15,7 +15,19 @@
   color: #00bf63;
   /* border: 20px solid #00221c */
 }
-.signin,
+.signin {
+  width: 30%;
+  height: 700px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 20px;
+  flex-direction: column;
+  border: 0.1px solid var(--primary-green);
+  border-radius: 10px;
+  border: 5px solid var(--primary-green);
+}
+
 .signup {
   width: 30%;
   height: 575px;

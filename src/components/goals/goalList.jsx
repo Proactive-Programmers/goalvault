@@ -2,6 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setCurrentGoal, setGoals, setTasks } from '../../redux/slices/userSlice';
 import { Link, useNavigate } from 'react-router-dom';
+//import  write  from '../../../public/img/write.png'
+// import { trash } from 'public/img/trash.png'
+
 const GoalList = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -60,24 +63,24 @@ const GoalList = () => {
                 >
                   {el['goal_name']}
                 </p>
-                <div className='goalItemActions'>
-                  <img
+                <img
                     onClick={() => {
                       dispatch(setCurrentGoal(el));
                       handleGoalClick(urlParam);
                     }}
                     className='editGoalItem'
                     alt='e'
-                    src='../../../public/img/edit.png'
+                    width='20px'
+                    src='https://i.ibb.co/y8BqfWx/delete.png'
                   />
 
                   <img
                     onClick={() => handleDeleteGoal(el.id)}
                     className='deleteGoalItem'
                     alt='d'
-                    src='../../../public/img/delete.png'
+                    width='20px'
+                    src='https://i.ibb.co/9bQWGgQ/edit.png'
                   />
-                </div>
               </div>
             );
           })}

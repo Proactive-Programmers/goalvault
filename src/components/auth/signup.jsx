@@ -21,7 +21,7 @@ const Signup = () => {
       console.log(response, 'response');
       const data = await response.json();
       console.log(data, 'data');
-
+      // dispatch(setGoals())
       dispatch(setUser({id:data.id, username: data.username}));
     } catch (error) {
       console.log(error.messag);

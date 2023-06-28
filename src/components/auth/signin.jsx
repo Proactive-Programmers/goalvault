@@ -4,25 +4,29 @@ import { setUser, showSignup } from '../../redux/slices/userSlice';
 
 const Signin = () => {
   const user = useSelector((state) => state.userName);
+  const userId = useSelector((state) => state.id);
+
   console.log('username', user);
   const dispatch = useDispatch();
 
   const [password, setPassword] = useState('');
   const [username, setUserName] = useState('');
   console.log(password, username);
+  console.log(userId, 'user id');
   const handleSignin = async () => {
     try {
-      const response = await fetch('/login/loginRequest', {
+      const userResponse = await fetch('/login/loginRequest', {
         method: 'POST',
         headers: {
           'Content-type': 'application/json',
         },
         body: JSON.stringify({ username, password }),
       });
-      const data = await response.json();
-      console.log(data, 'data');
+      const userData = await userResponse.json();
+      dispatch(setUser({ id: userData.id, username: userData.username }));
+     
+  
       //calling redux dispatch function to store user id and username in payload
-      dispatch(setUser({id: data.id, username: data.username}));
     } catch (error) {
       console.log(error.messag);
     }

@@ -4,7 +4,7 @@ const initialState = {
   userName: false,
   id: null,
   signup: false,
-  goals: [],
+  goals: null,
   currentGoal: null,
 };
 
@@ -13,7 +13,7 @@ export const userSlice = createSlice({
   initialState,
   reducers: {
     setUser: (state, action) => {
-      state.id = action.payload.id
+      state.id = action.payload.id;
       state.userName = action.payload.username;
     },
     showSignup: (state) => {
@@ -27,13 +27,26 @@ export const userSlice = createSlice({
       state.userName = false;
       state.id = null;
       state.signup = false;
-      state.goals = [];
+      state.goals = null;
       state.currentGoal = null;
+    },
+    setGoals: (state, action) => {
+      state.goals = action.payload;
+    },
+    addGoal: (state, action) => {
+      state.goals = [...state.goals, action.payload];
+      // state.goals.push(action.payload);
     },
   },
 });
 
-export const { setUser, showSignup, setCurrentGoal, logoutUser } =
-  userSlice.actions;
+export const {
+  setUser,
+  showSignup,
+  setCurrentGoal,
+  logoutUser,
+  addGoal,
+  setGoals,
+} = userSlice.actions;
 
 export default userSlice.reducer;

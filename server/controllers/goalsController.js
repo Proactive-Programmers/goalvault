@@ -25,5 +25,24 @@ goalsController.addGoal = (req, res, next) => {
     });
 };
 
+goalsController.getGoals = (req, res, next) => {
+    const { user_id} = req.params
+    //define the query string for inserting the goal into goals table
+    const queryString = `SELECT * FROM goals WHERE user_id = $1`;
+    db.query(queryString, [user_id])
+    .then((data) => {
+       console.log(data);
+        res.locals.goals = data.rows
+       return next();
+    })
+    .catch((err) => {
+        return next({
+            log: `addGoal: ${err}`,
+            status: 500,
+            message: { err: 'error occurred in goalController addGoal' },
+        });
+    });
+};
+
 
 module.exports = goalsController;

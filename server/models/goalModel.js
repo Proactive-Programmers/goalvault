@@ -1,11 +1,9 @@
+// //require the dotenv package
+// require('dotenv').config();
 const { Pool } = require('pg');
-
-// database connection URI
-const PG_URI = 'postgres://nvjotmfx:I2Z_ieuv5rsVfHs88Hdqx22QoAsyDjQh@rajje.db.elephantsql.com/nvjotmfx';
-
 // create a new pool here using the connection string above
 const pool = new Pool({
-    connectionString: PG_URI,
+    connectionString: 'postgres://nvjotmfx:I2Z_ieuv5rsVfHs88Hdqx22QoAsyDjQh@rajje.db.elephantsql.com/nvjotmfx'
 });
 
 // We export an object that contains a property called query,

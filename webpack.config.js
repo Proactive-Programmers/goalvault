@@ -1,33 +1,43 @@
-const path = require("path");
+const path = require('path');
 
 module.exports = {
-  mode: "development",
-  entry: "./src/index.js",
+  mode: 'development',
+  entry: './src/index.js',
   output: {
-    path: path.resolve(__dirname, "public"),
-    filename: "main.js",
+    path: path.resolve(__dirname, 'public'),
+    filename: 'main.js',
   },
 
-  target: "web",
+  target: 'web',
   devServer: {
-    port: "3000",
-    static: ["./public"],
+    port: '3000',
+    static: ['./public'],
     open: true,
     hot: true,
     liveReload: true,
+    proxy: {
+      '/login/**': {
+        target: 'http://localhost:8080/',
+        secure: false,
+      },
+      '/logout/**': {
+        target: 'http://localhost:8080/',
+        secure: false,
+      },
+    },
   },
   resolve: {
-    extensions: [".js", ".jsx", ".json"],
+    extensions: ['.js', '.jsx', '.json'],
   },
   module: {
     rules: [
       {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
-        use: "babel-loader",
+        use: 'babel-loader',
       },
       {
-        test: /\.s[ac]ss$/i,
+        test: /\.css$/i,
         use: ['style-loader', 'css-loader'],
       },
     ],

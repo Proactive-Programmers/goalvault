@@ -1,3 +1,9 @@
+:root {
+  --primary-green: #008545;
+  --primary-white: #ffffff;
+}
+
+
 .auth {
   width: 100%;
   height: 100vh;
@@ -5,7 +11,7 @@
   align-items: center;
   justify-content: center;
   /* background-color: ; */
-  color: teal;
+  color: #00bf63;
 }
 .signin,
 .signup {
@@ -16,7 +22,7 @@
   justify-content: flex-start;
   gap: 20px;
   flex-direction: column;
-  border: 0.1px solid teal;
+  border: 0.1px solid var(--primary-green);
   border-radius: 5px;
 }
 .signin label,
@@ -32,7 +38,7 @@
   margin-top: 10px;
   width: 100%;
   height: 30px;
-  border: 0.1px solid teal;
+  border: 0.1px solid var(--primary-green);
   border-radius: 5px;
 }
 .signin button,
@@ -42,7 +48,7 @@
   cursor: pointer;
   /* border: 0.1px solid teal; */
   border-radius: 5px;
-  background-color: teal;
-  color: white;
+  background-color: var(--primary-green);
+  color: var(--primary-white);
   height: 30px;
 }

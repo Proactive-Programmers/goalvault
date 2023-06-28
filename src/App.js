@@ -8,12 +8,12 @@ import Navbar from './components/navbar/navbar';
 
 const App = () => {
   const user = useSelector((state) => state);
-  console.log(user);
+  console.log(user, 'user');
   return (
     <div className='App'>
-      {user ? <Navbar /> : null}
+      {user.id ? <Navbar /> : null}
       <Routes>
-        <Route path='/' element={user.userName ? <Goals /> : <Auth />} />
+        <Route path='/' element={user.id ? <Goals /> : <Auth />} />
         <Route path='/goals/:goal' element={<Task />} />
       </Routes>
     </div>

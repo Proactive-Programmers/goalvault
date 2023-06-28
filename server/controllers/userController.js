@@ -32,7 +32,7 @@ userController.verifyUser = (req, res, next) => {
         res.status(404).json('Invalid Username or Password');
         return next();
       }
-      res.locals.user.username = data.rows[0].username;
+      res.locals.user = data.rows[0];
       return next();
     })
     .catch((err) => {
@@ -78,14 +78,10 @@ userController.createUser = async (req, res, next) => {
   //   console.log('res.locals is: ', res.locals);
   const hashedPw = await bcrypt.hash(password, saltRound);
   // console.log('hashedPw', hashedPw, typeof hashedPw)
-  const queryString = `INSERT INTO users (username, password) 
-                        VALUES ( $1, $2)
-                        RETURNING *`;
+  const queryString = `INSERT INTO users (username, password) VALUES ( $1, $2) RETURNING *`;
   db.query(queryString, [username, hashedPw])
     .then((data) => {
-      console.log('data at row zero: ', data.rows[0]);
-      res.locals.username = data.rows[0].username;
-      console.log(res.locals.username, 'username from createuser controller');
+      res.locals.username = data.rows[0];
       const { newUser } = res.locals;
       return next();
     })

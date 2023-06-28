@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setUser } from '../../redux/slices/userSlice';
+import keeperLogo from '../../../public/img/GOAL-KEEPER-LOGO-500-TEXT.png';
+
 
 const Signup = () => {
   const dispatch = useDispatch();
@@ -40,7 +42,11 @@ const Signup = () => {
         <input type='password' onChange={(e) => setPassword(e.target.value)} />
       </label>
       <button onClick={handleSignup}>Sign up</button>
+       
+        <img className='logo' src={keeperLogo} alt='goal-keeper-logo' />
+       
     </div>
+    
   );
 };
 

@@ -1,5 +1,5 @@
 :root {
-  --primary-green: #008545;
+  --primary-green: #00221c;
   --primary-white: #ffffff;
 }
 
@@ -30,7 +30,7 @@
   align-items: center;
   justify-content: start;
   flex-direction: column;
-  border: 0.2px solid #008545;
+  border: 0.2px solid var(--primary-green);
   border-radius: 5px;
   margin-bottom: 100px;
 }
@@ -40,7 +40,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #008545;
+  background-color: var(--primary-green);
   color: white;
   margin-bottom: 20px;
 }
@@ -53,7 +53,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 0.5px dotted #008545;
+  border: 0.5px dotted var(--primary-green);
 }
 .taskListItem p {
   text-align: center;
@@ -94,7 +94,7 @@
 }
 .taskInputHolders input {
   margin-left: 10px;
-  border: 0.2px solid #008545;
+  border: 0.2px solid var(--primary-green);
   border-radius: 5px;
   width: 200px;
   height: 25px;

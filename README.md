@@ -1,9 +1,9 @@
 
-# Goal Vault
+# Goal Keeper
 
-![Goal Vault Logo](public/img/Goal_Vault_Logo-dg-250.png)
+![Goal Keeper Logo](public/img/GOAL-KEEPER-LOGO-250-TEXT.png)
 
-Goal Vault is the premier application designed to help you achieve your goals. By allowing you to input individual goals and necessary sub-tasks, Goal Vault makes tracking your progress and managing your time easier than ever. Each subtask can be assigned a priority and due date.
+Goal Keeper is the premier application designed to help you achieve your goals. By allowing you to input individual goals and necessary sub-tasks, Goal Keeper makes tracking your progress and managing your time easier than ever. Each subtask can be assigned a priority and due date.
 
 ## Features
 - **Goal Setting**: Set and manage individual goals. 

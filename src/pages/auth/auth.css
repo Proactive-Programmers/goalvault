@@ -1,5 +1,6 @@
 :root {
-  --primary-green: #008545;
+  --primary-green: #00221c;
+  --secondary-green: #00bf63;
   --primary-white: #ffffff;
 }
 
@@ -12,18 +13,20 @@
   justify-content: center;
   /* background-color: ; */
   color: #00bf63;
+  /* border: 20px solid #00221c */
 }
 .signin,
 .signup {
   width: 30%;
-  height: 60vh;
+  height: 575px;
   display: flex;
   align-items: center;
   justify-content: flex-start;
   gap: 20px;
   flex-direction: column;
   border: 0.1px solid var(--primary-green);
-  border-radius: 5px;
+  border-radius: 10px;
+  border: 5px solid var(--primary-green);
 }
 .signin label,
 .signup label {
@@ -51,4 +54,17 @@
   background-color: var(--primary-green);
   color: var(--primary-white);
   height: 30px;
+}
+
+.signin button:hover,
+.signup button:hover {
+  background-color: var(--secondary-green);
+  color: var(--primary-white);
+  border: 0.1px solid var(--primary-green);
+} 
+
+.logo {
+  height: 250px;
+  width: 250px;
+  border-radius: 5px;
 }

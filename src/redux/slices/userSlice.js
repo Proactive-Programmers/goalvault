@@ -23,6 +23,7 @@ export const userSlice = createSlice({
     },
     setCurrentGoal: (state, action) => {
       state.currentGoal = action.payload;
+      state.tasks = [];
     },
     logoutUser: (state) => {
       state.userName = false;

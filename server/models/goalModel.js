@@ -3,20 +3,21 @@
 const { Pool } = require('pg');
 // create a new pool here using the connection string above
 const pool = new Pool({
-    connectionString: 'postgres://nvjotmfx:I2Z_ieuv5rsVfHs88Hdqx22QoAsyDjQh@rajje.db.elephantsql.com/nvjotmfx'
+  connectionString:
+    'postgres://nvjotmfx:I2Z_ieuv5rsVfHs88Hdqx22QoAsyDjQh@rajje.db.elephantsql.com/nvjotmfx',
 });
 
 // We export an object that contains a property called query,
 // which is a function that returns the invocation of pool.query() after logging the query
 // This will be required in the controllers
 module.exports = {
-    query: (text, params, callback) => {
-        // ensure that we are connected to the database
-        console.log('db is connected');
-        // console.log will tell us what the query was
-        console.log('executed query', text);
-        return pool.query(text, params, callback);
-    },
+  query: (text, params, callback) => {
+    // ensure that we are connected to the database
+    console.log('db is connected');
+    // console.log will tell us what the query was
+    console.log('executed query', text);
+    return pool.query(text, params, callback);
+  },
 };
 
 // SQL statements for checking if the schema exists
@@ -65,18 +66,18 @@ async function setupSchema() {
 
     // If the schema exists, don't do anything
     if (!schemaExists) {
-    // Begin a transaction
-    await client.query('BEGIN');
+      // Begin a transaction
+      await client.query('BEGIN');
 
-    // Execute the schema creation statements
-    await client.query(createSchemaSql);
+      // Execute the schema creation statements
+      await client.query(createSchemaSql);
 
-    // Commit the transaction
-    await client.query('COMMIT');
+      // Commit the transaction
+      await client.query('COMMIT');
 
-    console.log('Schema setup successful!');
+      console.log('Schema setup successful!');
     } else {
-    console.log('Schema already exists :).');
+      console.log('Schema already exists :).');
     }
   } catch (error) {
     // Rollback the transaction on error
@@ -94,4 +95,4 @@ async function setupSchema() {
 }
 
 // Call the function to set up the schema - includes conditional that chesks if the schema exists, and if it does, it does not run the createSchemaSql
-setupSchema();
+// setupSchema();

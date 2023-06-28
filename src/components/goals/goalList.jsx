@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { setCurrentGoal, setGoals } from '../../redux/slices/userSlice';
+import { setCurrentGoal, setGoals, setTasks } from '../../redux/slices/userSlice';
 import { Link, useNavigate } from 'react-router-dom';
 const GoalList = () => {
   const dispatch = useDispatch();
@@ -8,18 +8,14 @@ const GoalList = () => {
   const goals = useSelector((state) => state.goals);
   const userid = useSelector((state) => state.id);
   const handleDeleteGoal = async (id) => {
-    console.log('id', id);
-    console.log('deleted');
     const response = await fetch('/deleteGoal', {
       method: 'DELETE',
       headers: {
         'Content-type': 'application/json',
       },
-      //maybe send username aswell
       body: JSON.stringify(id),
     });
     const data = await response.json();
-    //update state maybe
   };
 
   const handleGoalClick = (goalName) => {

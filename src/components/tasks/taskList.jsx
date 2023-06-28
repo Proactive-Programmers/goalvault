@@ -34,6 +34,14 @@ const TaskList = () => {
         </div>
         {tasks &&
           tasks.map((task) => {
+            let priorityLevel = '';
+            if (task.priority == '1') {
+              priorityLevel == 'High';
+            } else if (task.priority == '2') {
+              priorityLevel = 'Medium';
+            } else {
+              priorityLevel = 'Low';
+            }
             return (
               <div
                 className='taskListItem'
@@ -41,7 +49,7 @@ const TaskList = () => {
               >
                 <p>{task.task}</p>
                 <p>{task.due_date}</p>
-                <p>{task.priority}</p>
+                <p>{priorityLevel}</p>
               </div>
             );
           })}

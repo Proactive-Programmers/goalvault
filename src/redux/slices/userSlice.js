@@ -2,6 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
   userName: false,
+  id: null,
   signup: false,
   goals: [],
   currentGoal: null,
@@ -12,7 +13,8 @@ export const userSlice = createSlice({
   initialState,
   reducers: {
     setUser: (state, action) => {
-      state.userName = action.payload;
+      state.id = action.payload.id
+      state.userName = action.payload.username;
     },
     showSignup: (state) => {
       console.log('handle sowsignup');
@@ -23,6 +25,7 @@ export const userSlice = createSlice({
     },
     logoutUser: (state) => {
       state.userName = false;
+      state.id = null;
       state.signup = false;
       state.goals = [];
       state.currentGoal = null;

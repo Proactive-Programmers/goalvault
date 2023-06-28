@@ -22,7 +22,7 @@ const Signup = () => {
       const data = await response.json();
       console.log(data, 'data');
 
-      dispatch(setUser(data));
+      dispatch(setUser({id:data.id, username: data.username}));
     } catch (error) {
       console.log(error.messag);
     }

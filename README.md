@@ -1,7 +1,7 @@
 
 # Goal Vault
 
-<img width='200px' src='https://github.com/Proactive-Programmers/goalvault/assets/112515781/c76d0061-2704-40f4-911e-2de2f2f15952'/>
+![Goal Vault Logo](public/img/Goal_Vault_Logo-dg-250.png)
 
 Goal Vault is the premier application designed to help you achieve your goals. By allowing you to input individual goals and necessary sub-tasks, Goal Vault makes tracking your progress and managing your time easier than ever. Each subtask can be assigned a priority and due date.
 

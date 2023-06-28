@@ -1,5 +1,5 @@
 :root {
-  --primary-green: #00bf63;
+  --primary-green: #008545;
   --primary-white: #ffffff;
 }
 
@@ -33,7 +33,7 @@
   height: 25px;
 }
 .goalInputs input::placeholder {
-  color: var(--primary-green));
+  color: var(--primary-green);
 }
 .goalInputs input:focus {
   /* color: teal; */

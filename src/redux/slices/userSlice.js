@@ -6,6 +6,7 @@ const initialState = {
   signup: false,
   goals: null,
   currentGoal: null,
+  tasks: null,
 };
 
 export const userSlice = createSlice({
@@ -29,6 +30,7 @@ export const userSlice = createSlice({
       state.signup = false;
       state.goals = null;
       state.currentGoal = null;
+      state.tasks = null;
     },
     setGoals: (state, action) => {
       state.goals = action.payload;
@@ -36,6 +38,12 @@ export const userSlice = createSlice({
     addGoal: (state, action) => {
       state.goals = [...state.goals, action.payload];
       // state.goals.push(action.payload);
+    },
+    addTask: (state, action) => {
+      state.tasks = [...state.tasks, action.payload];
+    },
+    setTasks: (state, action) => {
+      state.tasks = action.payload;
     },
   },
 });
@@ -47,6 +55,8 @@ export const {
   logoutUser,
   addGoal,
   setGoals,
+  setTasks,
+  addTask,
 } = userSlice.actions;
 
 export default userSlice.reducer;

@@ -28,6 +28,10 @@ module.exports = {
         target: 'http://localhost:8080/',
         secure: false,
       },
+      '/tasks/**': {
+        target: 'http://localhost:8080/',
+        secure: false,
+      },
     },
   },
   resolve: {

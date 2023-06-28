@@ -9,7 +9,6 @@ goalsController.addGoal = (req, res, next) => {
     const queryString = `INSERT INTO goals (user_id, goal_name) VALUES ( $1, $2) RETURNING *`;
     db.query(queryString, [user_id, goal_name])
     .then((data) => {
-       console.log(data);
        const goal = {};
        goal['goal_id'] = data.rows[0].id;
        goal['goal_name'] = data.rows[0]['goal_name'];
@@ -31,7 +30,6 @@ goalsController.getGoals = (req, res, next) => {
     const queryString = `SELECT * FROM goals WHERE user_id = $1`;
     db.query(queryString, [user_id])
     .then((data) => {
-       console.log(data);
         res.locals.goals = data.rows
        return next();
     })
@@ -43,6 +41,5 @@ goalsController.getGoals = (req, res, next) => {
         });
     });
 };
-
 
 module.exports = goalsController;

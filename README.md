@@ -37,7 +37,7 @@ This project is licensed under the MIT license.
 
 This application is a collaborative effort from the Proactive Programmers Team:
 
-- Wan "Ivy" Wan
+- Ivy Wang
 - Shahmar Aliyev
 - Mike Bednarz
 - Nick Huemmer

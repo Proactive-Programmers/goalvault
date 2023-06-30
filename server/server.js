@@ -5,7 +5,7 @@ const cookieParser = require('cookie-parser');
 const loginRouter = require('./routes/loginRouter');
 const goalsRouter = require('./routes/goalsRouter');
 const tasksRouter = require('./routes/tasksRouter');
-const port = 8080;
+const port = 3000;
 
 const app = express();
 // app.use(cors());

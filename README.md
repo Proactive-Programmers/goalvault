@@ -44,4 +44,4 @@ This application is a collaborative effort from the Proactive Programmers Team:
 
 For any queries, please feel free to contact us.
 
-![Proactive Programmers](./public/img/Proactive Programmers.png)
+![Proactive Programmers](./public/img/proactive_programmers250.png)

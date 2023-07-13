@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { setCurrentGoal, setGoals, setTasks } from '../../redux/slices/userSlice';
+import {
+  setCurrentGoal,
+  setGoals,
+  setTasks,
+} from '../../redux/slices/userSlice';
 import { Link, useNavigate } from 'react-router-dom';
 //import  write  from '../../../public/img/write.png'
 // import { trash } from 'public/img/trash.png'
@@ -54,7 +58,7 @@ const GoalList = () => {
               .join('')
               .toLocaleLowerCase();
             return (
-              <div className='goalItem' key={el.name}>
+              <div className='goalItem' key={el.name + el.goal_name}>
                 <p
                   onClick={() => {
                     dispatch(setCurrentGoal(el));
@@ -70,16 +74,15 @@ const GoalList = () => {
                     }}
                     className='editGoalItem'
                     alt='e'
-                    width='20px'
-                    src='https://i.ibb.co/y8BqfWx/delete.png'
+                    width={'20px'}
+                    src={require('../../../assets/delete.png')}
                   />
 
                   <img
                     onClick={() => handleDeleteGoal(el.id)}
                     className='deleteGoalItem'
-                    alt='d'
-                    width='20px'
-                    src='https://i.ibb.co/9bQWGgQ/edit.png'
+                    width={'20px'}
+                    src={require('../../../assets/edit.png')}
                   />
               </div>
             );

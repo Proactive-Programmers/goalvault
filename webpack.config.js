@@ -1,64 +1,83 @@
 const path = require('path');
-
+const webpack = require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 module.exports = {
-  mode: 'development',
-  entry: './src/index.js',
-  output: {
-    path: path.resolve(__dirname, 'public'),
-    filename: 'main.js',
-  },
-
+  entry: [
+    // entry point of our app
+    './src/index.js',
+  ],
   target: 'web',
+  output: {
+    path: path.resolve(__dirname, 'dist'),
+    publicPath: '/',
+    filename: 'bundle.js',
+    clean: true,
+  },
+  mode: process.env.NODE_ENV,
+
   devServer: {
-    port: '3000',
-    static: ['./public'],
-    open: true,
+    host: '0.0.0.0',
+    port: 8080,
+    // open: true,
     hot: true,
-    liveReload: true,
+    historyApiFallback: true,
+    // liveReload: true,
+    static: {
+      // match the output path
+      directory: path.resolve(__dirname, 'dist'),
+      // match the output 'publicPath'
+      publicPath: '/',
+    },
+    headers: { 'Access-Control-Allow-Origin': '*' },
+    /**
+     * proxy is required in order to make api calls to
+     * express server while using hot-reload webpack server
+     * routes api fetch requests from localhost:8080/api/* (webpack dev server)
+     * to localhost:3000/api/* (where our Express server is running)
+     */
     proxy: {
-      '/login/**': {
-        target: 'http://localhost:8080/',
+      '/**': {
+        target: 'http://0.0.0.0:3000/',
         secure: false,
-      },
-      '/goals/**': {
-        target: 'http://localhost:8080/',
-        secure: false,
-      },
-      '/logout/**': {
-        target: 'http://localhost:8080/',
-        secure: false,
-      },
-      '/tasks/**': {
-        target: 'http://localhost:8080/',
-        secure: false,
+        headers: {
+          Connection: 'keep-alive',
+        },
       },
     },
   },
   resolve: {
     extensions: ['.js', '.jsx', '.json'],
   },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: './public/index.html',
+    }),
+    new MiniCssExtractPlugin(),
+  ],
   module: {
     rules: [
       {
-        test: /\.(js|jsx)$/,
+        test: /.(js|jsx)$/,
         exclude: /node_modules/,
-        use: 'babel-loader',
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['@babel/preset-env', '@babel/preset-react'],
+          },
+        },
       },
       {
         test: /\.css$/i,
         use: ['style-loader', 'css-loader'],
       },
+
       {
-        test: /\.(png|jpg|gif)$/i,
-        use: [
-          {
-            loader: 'url-loader',
-            options: {
-              limit: 8192,
-            }
-          },
-        ],
-       type: 'javascript/auto'
+        test: /\.(png|svg|jpg|jpeg|gif)$/i,
+        type: 'asset/resource',
+        generator: {
+          filename: 'images/[name]-[hash][ext]',
+        },
       },
     ],
   },

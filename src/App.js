@@ -7,13 +7,13 @@ import Task from './pages/tasks/task';
 import Navbar from './components/navbar/navbar';
 
 const App = () => {
-  const user = useSelector((state) => state.user);
-  console.log(user);
+  const user = useSelector((state) => state);
+  console.log(user, 'user');
   return (
     <div className='App'>
-      {user.userName ? <Navbar /> : null}
+      {user.id ? <Navbar /> : null}
       <Routes>
-        <Route path='/' element={user.userName ? <Goals /> : <Auth />} />
+        <Route path='/' element={user.id ? <Goals /> : <Auth />} />
         <Route path='/goals/:goal' element={<Task />} />
       </Routes>
     </div>

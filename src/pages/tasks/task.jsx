@@ -3,6 +3,8 @@ import TaskInputs from '../../components/tasks/taskInputs';
 import TaskList from '../../components/tasks/taskList';
 import './task.css';
 import { useSelector } from 'react-redux';
+
+
 const Task = () => {
   const goalName = useSelector((state) => state.currentGoal?.goal_name);
 
